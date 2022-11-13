@@ -12,9 +12,9 @@ let browser: Browser;
 const timeout = 3000;
 
 const setup = {
-  email: DEFAULT.email,
-  password: DEFAULT.password,
-  city: "Sao Paulo",
+  email: "pedrop.rio@gmail.com",
+  password: "yWe%^cc8q&",
+  city: "Rio de Janeiro",
 };
 
 const selectors = {

@@ -39,7 +39,9 @@ const selectors = {
 
 (async () => {
   console.log(`Acessando página ...`);
-  browser = await puppeteer.launch();
+  browser = await puppeteer.launch({
+    executablePath: '/usr/bin/chromium-browser'
+  });
 
   if (setup.email === DEFAULT.email || setup.password === DEFAULT.password) {
     console.error("Por favor, edite o email e senha");

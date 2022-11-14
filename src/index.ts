@@ -108,8 +108,12 @@ const bot = async (): Promise<void> => {
     timeout: timeout,
   });
 
+  const continueButton2 = await page.waitForSelector(
+    selectors.profilePage.continueButton
+  );
+
   await Promise.all([
-    continueButton.click(),
+    continueButton2.click(),
     page.waitForNavigation({
       waitUntil: "networkidle2",
       timeout: timeout,

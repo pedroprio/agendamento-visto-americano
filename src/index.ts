@@ -211,6 +211,7 @@ const bot = async (): Promise<void> => {
   if (priData) {
     await priData.click();
   }
+  await page.setViewport({ width: 1920, height: 1080 });
   await printscreen(page);
   //Fim teste de seleção de data
 

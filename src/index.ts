@@ -207,7 +207,7 @@ const bot = async (): Promise<void> => {
 
   //Inicio teste de seleção de data
   
-  const [priData] = await page.$x("//td[data-month=" + datesResults[0].month + "]/a.ui-state-default[contains(.," + datesResults[0].date + ")]");
+  const [priData] = await page.$x("//td[data-month=" + datesResults[0].month + "]/a.ui-state-default.ui-state-active[contains(.," + datesResults[0].date + ")]");
   if (priData) {
     await priData.click();
   }

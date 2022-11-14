@@ -27,9 +27,6 @@ const selectors = {
   profilePage: {
     continueButton: "a.button.primary",
   },
-  choosePeople: {
-    continueButton: "a.button.secondary",
-  },
   appointmentPage: {
     selectCity: 'select[id="appointments_consulate_appointment_facility_id"]',
     inputDate: 'input[id="appointments_consulate_appointment_date"]',
@@ -96,19 +93,8 @@ const bot = async (): Promise<void> => {
   const continueButton = await page.waitForSelector(
     selectors.profilePage.continueButton
   );
-  const continue2Button = await page.waitForSelector(
-    selectors.choosePeople.continueButton
-  );
   await Promise.all([
     continueButton.click(),
-    page.waitForNavigation({
-      waitUntil: "networkidle2",
-      timeout: timeout,
-    }),
-  ]);
-  
-  await Promise.all([
-    continue2Button.click(),
     page.waitForNavigation({
       waitUntil: "networkidle2",
       timeout: timeout,
@@ -121,6 +107,14 @@ const bot = async (): Promise<void> => {
     waitUntil: "load",
     timeout: timeout,
   });
+
+  await Promise.all([
+    continueButton.click(),
+    page.waitForNavigation({
+      waitUntil: "networkidle2",
+      timeout: timeout,
+    }),
+  ]);
 
   await printscreen(page, "-agendamento");
 

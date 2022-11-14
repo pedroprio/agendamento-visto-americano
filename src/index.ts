@@ -37,6 +37,7 @@ const selectors = {
     tableDatepicker: "table.ui-datepicker-calendar",
     nextMonthButton: 'div.ui-datepicker-group a[data-handler="next"]',
     datesAvailable: 'table.ui-datepicker-calendar td[data-handler="selectDay"]',
+    firstAvailable: 'table.ui-datepicker-calendar td[data-handler="selectDay"][1]',
   },
 };
 
@@ -207,10 +208,7 @@ const bot = async (): Promise<void> => {
 
   //Inicio teste de seleção de data
   
-  const [priData] = await page.$x("//td[data-month=" + datesResults[0].month + "]/a.ui-state-default.ui-state-active[contains(.," + datesResults[0].date + ")]");
-  if (priData) {
-    await priData.click();
-  }
+  await page.click(selectors.appointmentPage.firstAvailable);
   await page.setViewport({ width: 1920, height: 1080 });
   await printscreen(page);
   //Fim teste de seleção de data

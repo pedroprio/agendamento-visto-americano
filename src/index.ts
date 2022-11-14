@@ -206,10 +206,7 @@ const bot = async (): Promise<void> => {
   });
 
   //Inicio teste de seleção de data
-  const selectDate = await page.waitForSelector(
-    selectors.appointmentPage.datepicker
-  );
-  selectDate.select(selectors.appointmentPage.datepicker, datesResults[0].date);
+  page.click(selectors.appointmentPage.datesAvailable);
   await printscreen(page);
   //Fim teste de seleção de data
 

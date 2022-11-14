@@ -37,7 +37,7 @@ const selectors = {
     tableDatepicker: "table.ui-datepicker-calendar",
     nextMonthButton: 'div.ui-datepicker-group a[data-handler="next"]',
     datesAvailable: 'table.ui-datepicker-calendar td[data-handler="selectDay"]',
-    firstAvailable: 'table.ui-datepicker-calendar td[data-handler="selectDay"][1]',
+    firstAvailable: '(table.ui-datepicker-calendar td[data-handler="selectDay"])[1]',
   },
 };
 

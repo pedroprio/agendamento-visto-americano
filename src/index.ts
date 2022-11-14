@@ -1,6 +1,6 @@
 import { getUnixTime } from "date-fns";
 import puppeteer, { Browser } from "puppeteer";
-import { CITIES, DEFAULT, MONTHS } from "./constants";
+import { CITIES, LOGIN, MONTHS } from "./constants";
 
 export interface DateAvailable {
   year: string;
@@ -12,8 +12,8 @@ let browser: Browser;
 const timeout = 3000;
 
 const setup = {
-  email: "pedrop.rio@gmail.com",
-  password: "yWe%^cc8q&",
+  email: LOGIN.email,
+  password: LOGIN.password,
   city: "Rio de Janeiro",
 };
 
@@ -46,11 +46,11 @@ const selectors = {
     executablePath: '/usr/bin/chromium-browser'
   });
 
-  if (setup.email === DEFAULT.email || setup.password === DEFAULT.password) {
-    console.error("Por favor, edite o email e senha");
-    await browser.close();
-    return;
-  }
+  //if (setup.email === DEFAULT.email || setup.password === DEFAULT.password) {
+  //  console.error("Por favor, edite o email e senha");
+  //  await browser.close();
+  //  return;
+ // }
 
   await bot();
   await browser.close();

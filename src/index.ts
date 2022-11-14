@@ -206,7 +206,11 @@ const bot = async (): Promise<void> => {
   });
 
   //Inicio teste de seleção de data
-  page.click(selectors.appointmentPage.datesAvailable);
+  
+  const [priData] = await page.$x("//a.ui-state-default[contains(.," + datesResults[0].date + ")]");
+  if (priData) {
+    await priData.click();
+  }
   await printscreen(page);
   //Fim teste de seleção de data
 

@@ -27,6 +27,9 @@ const selectors = {
   profilePage: {
     continueButton: "a.button.primary",
   },
+  peopleSelection: {
+    continueButton: 'input[type="submit"]',
+  },  
   appointmentPage: {
     selectCity: 'select[id="appointments_consulate_appointment_facility_id"]',
     inputDate: 'input[id="appointments_consulate_appointment_date"]',
@@ -109,9 +112,8 @@ const bot = async (): Promise<void> => {
   });
 
   const continueButton2 = await page.waitForSelector(
-    selectors.profilePage.continueButton
+    selectors.peopleSelection.continueButton
   );
-
   await Promise.all([
     continueButton2.click(),
     page.waitForNavigation({
